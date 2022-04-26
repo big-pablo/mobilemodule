@@ -4,6 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AndroidStudioProjects/mobilemodule/app/src/main/res/layout/activity_main.xml" value="0.24010416666666667" />
+        <entry key="..\:/Users/Daria/Documents/GitHub/mobilemodule/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2265" />
+        <entry key="..\:/Users/Daria/Documents/GitHub/mobilemodule/app/src/main/res/drawable/ic_launcher_background.xml" value="0.127" />
+        <entry key="..\:/Users/Daria/Documents/GitHub/mobilemodule/app/src/main/res/layout/activity_block_menu.xml" value="0.259375" />
+        <entry key="..\:/Users/Daria/Documents/GitHub/mobilemodule/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/Daria/Documents/GitHub/mobilemodule/app/src/main/res/layout/block_menu.xml" value="0.22826086956521738" />
       </map>
     </option>
   </component>
