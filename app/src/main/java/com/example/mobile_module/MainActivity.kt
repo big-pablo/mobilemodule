@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
             }
             popupMenu.show()
         }
-        //val popupMenu = PopupMenu(this, popupMenuButton)
     }
     fun addVariableBlock()
     {

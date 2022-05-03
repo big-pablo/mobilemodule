@@ -23,6 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
             android:gravity="center"
             android:text="Работа с переменной"
             android:textColor="#FFFFFF"
@@ -35,9 +36,10 @@
             android:layout_toRightOf="@id/textView"
             android:ems="10"
             android:gravity="center"
-            android:inputType="textPersonName"
-            android:text="Name"
-            android:textColor="#FFFFFF" />
+            android:hint="Name"
+            android:inputType="text"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#80FFFDFD" />
 
         <TextView
             android:id="@+id/textView2"
@@ -59,10 +61,11 @@
             android:layout_centerVertical="true"
             android:ems="10"
             android:gravity="center"
-            android:inputType="textPersonName"
+            android:hint="Value"
+            android:inputType="number"
             android:minHeight="48dp"
-            android:text="Value"
-            android:textColor="#FFFFFF" />
+            android:textColor="#FFFFFF"
+            android:textColorHint="#80FFFFFF" />
 
 
     </RelativeLayout>
