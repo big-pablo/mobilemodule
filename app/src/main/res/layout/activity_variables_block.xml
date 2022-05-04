@@ -30,7 +30,7 @@
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/VarName"
+            android:id="@+id/varName"
             android:layout_width="80dp"
             android:layout_height="50dp"
             android:layout_toRightOf="@id/textView"
@@ -48,7 +48,7 @@
             android:layout_centerHorizontal="false"
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@id/varVal"
-            android:layout_toRightOf="@id/VarName"
+            android:layout_toRightOf="@id/varName"
             android:gravity="center"
             android:text="="
             android:textSize="20sp" />

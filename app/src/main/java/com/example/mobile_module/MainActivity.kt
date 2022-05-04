@@ -7,9 +7,11 @@ import android.view.MenuItem
 import android.view.View
 import android.view.View.inflate
 import android.widget.*
+import androidx.core.widget.addTextChangedListener
 import com.example.mobile_module.databinding.ActivityMainBinding.inflate
 
 class MainActivity : AppCompatActivity() {
+    var variables:Vars = Vars()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -34,5 +36,10 @@ class MainActivity : AppCompatActivity() {
     {
         val maincontainer = findViewById<LinearLayout>(R.id.blocksContainer)
         val block = layoutInflater.inflate(R.layout.activity_variables_block,maincontainer,true)
+        val editVarValue = findViewById<EditText>(R.id.varVal)
+        val editVarName = findViewById<EditText>(R.id.varName)
+        editVarValue.addTextChangedListener{
+            variables.insertData(editVarName.text.toString(),editVarValue.text.toString())
+        } //Сука он работает только на один блок, надо сделать через ViewBinding
     }
 }

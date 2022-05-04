@@ -7,4 +7,9 @@ class Vars {
         numbersMap.put(key,value)
         println(numbersMap)
     }
+    fun getValue(key: String): Int
+    {
+        val key = (numbersMap.getValue(key)).toInt()
+        return(key)
+    }
 }
