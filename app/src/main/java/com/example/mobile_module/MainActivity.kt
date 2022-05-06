@@ -15,7 +15,6 @@ import com.example.mobile_module.databinding.ActivityVariablesBlockBinding
 class MainActivity : AppCompatActivity() {
     var variables:Vars = Vars()
     private val binding by lazy {ActivityMainBinding.inflate(layoutInflater)}
-    private val bindingVarBlock by lazy {ActivityVariablesBlockBinding.inflate(layoutInflater)}
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
@@ -41,13 +40,10 @@ class MainActivity : AppCompatActivity() {
         val blockContainer = binding.blocksContainer
         val block = LayoutInflater.from(this).inflate(R.layout.activity_variables_block, null) as View
         blockContainer.addView(block)
-        Log.d("AddVar", "Сработало ")
-      /*  bindingVarBlock.varVal.addTextChangedListener{
-            variables.insertData(bindingVarBlock.varName.text.toString(),bindingVarBlock.varVal.text.toString())
-        } */ //Сука он работает только на один блок, надо сделать через ViewBinding
-        bindingVarBlock.varVal.addTextChangedListener {
+        val varBlockBinding = ActivityVariablesBlockBinding.bind(block)
+        varBlockBinding.varVal.addTextChangedListener {
             Log.d("Listener", "Заработало")
-            variables.insertData(bindingVarBlock.varName.text.toString(),bindingVarBlock.varVal.text.toString())
-        } //Сука сделал через viewBinding, работать перестало вообще
+            variables.insertData(varBlockBinding.varName.text.toString(),varBlockBinding.varVal.text.toString())
+        }
     }
 }
