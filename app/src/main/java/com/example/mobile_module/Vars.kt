@@ -9,7 +9,7 @@ class Vars {
     }
     fun getValue(key: String): Int
     {
-        val key = (numbersMap.getValue(key)).toInt()
-        return(key)
+        val value = (numbersMap.getValue(key)).toInt()
+        return(value)
     }
 }

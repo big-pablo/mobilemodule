@@ -2,6 +2,8 @@ package com.example.mobile_module
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -37,13 +39,30 @@ class MainActivity : AppCompatActivity() {
     }
     fun addVariableBlock()
     {
+        val string = "1+13*10"
+        println(Arithmetic.countPolishString(string,variables))
         val blockContainer = binding.blocksContainer
         val block = LayoutInflater.from(this).inflate(R.layout.activity_variables_block, null) as View
         blockContainer.addView(block)
         val varBlockBinding = ActivityVariablesBlockBinding.bind(block)
-        varBlockBinding.varVal.addTextChangedListener {
+       /* varBlockBinding.varVal.addTextChangedListener {
             Log.d("Listener", "Заработало")
-            variables.insertData(varBlockBinding.varName.text.toString(),varBlockBinding.varVal.text.toString())
-        }
+            variables.insertData(varBlockBinding.varName.text.toString(),Arithmetic.countPolishString(varBlockBinding.varVal.text.toString(),variables))
+        }*/
+        varBlockBinding.varVal.addTextChangedListener(object : TextWatcher {
+
+            override fun afterTextChanged(s: Editable) {
+                variables.insertData(varBlockBinding.varName.text.toString(),Arithmetic.countPolishString(varBlockBinding.varVal.text.toString(),variables))
+            }
+
+            override fun beforeTextChanged(s: CharSequence, start: Int,
+                                           count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence, start: Int,
+                                       before: Int, count: Int) {
+            }
+        })
+
     }
 }

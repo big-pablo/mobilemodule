@@ -62,7 +62,7 @@
             android:ems="10"
             android:gravity="center"
             android:hint="Value"
-            android:inputType="number"
+            android:inputType="text"
             android:minHeight="48dp"
             android:textColor="#FFFFFF"
             android:textColorHint="#80FFFFFF" />
