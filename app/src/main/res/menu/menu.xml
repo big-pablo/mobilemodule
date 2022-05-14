@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 <item android:title="Работа с переменными" android:id="@+id/addVars"></item>
-    <item android:title="WIP" android:id="@+id/WIP1"></item>
-    <item android:title="WIP" android:id="@+id/WIP2"></item>
+    <item android:title="Арифметика" android:id="@+id/arithmetic"></item>
+    <item android:title="Вывод" android:id="@+id/output"></item>
 </menu>

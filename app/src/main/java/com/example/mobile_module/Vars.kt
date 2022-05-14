@@ -1,15 +1,9 @@
 package com.example.mobile_module
 
-class Vars {
-    private val numbersMap = mutableMapOf<String, String>()
+import android.widget.EditText
 
-    fun insertData(key: String, value:String ){
-        numbersMap.put(key,value)
-        println(numbersMap)
-    }
-    fun getValue(key: String): Int
-    {
-        val value = (numbersMap.getValue(key)).toInt()
-        return(value)
+class Vars(private var comp:Compiler, private val varName:EditText, private val varVal:EditText):BlockInterface() {
+    fun insertVariable(){
+        comp.insertData(varName.text.toString(),varVal.text.toString())
     }
 }

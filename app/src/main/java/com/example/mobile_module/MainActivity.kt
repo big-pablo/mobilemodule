@@ -11,11 +11,13 @@ import android.view.View.inflate
 import android.widget.*
 import android.util.Log
 import androidx.core.widget.addTextChangedListener
+import com.example.mobile_module.databinding.ActivityArithmeticBlockBinding
 import com.example.mobile_module.databinding.ActivityMainBinding
+import com.example.mobile_module.databinding.ActivityOutputBlockBinding
 import com.example.mobile_module.databinding.ActivityVariablesBlockBinding
 
 class MainActivity : AppCompatActivity() {
-    var variables:Vars = Vars()
+    var comp:Compiler = Compiler(this)
     private val binding by lazy {ActivityMainBinding.inflate(layoutInflater)}
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,40 +31,50 @@ class MainActivity : AppCompatActivity() {
                 {
                     "Работа с переменными" -> {addVariableBlock()
                     true}
+                    "Арифметика" -> {
+                        addArithmeticBlock()
+                        true
+                    }
+                    "Вывод" -> {
+                        addOutputBlock()
+                    true}
                     else -> {
-                        Toast.makeText(this, it.itemId, Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "А ты куда вообще тыкнул, ебанутый?", Toast.LENGTH_SHORT).show()
                     true}
                 }
             }
             popupMenu.show()
         }
+        binding.startButton.setOnClickListener {
+            comp.execute()
+        }
     }
     fun addVariableBlock()
     {
-        val string = "1+13*10"
-        println(Arithmetic.countPolishString(string,variables))
         val blockContainer = binding.blocksContainer
         val block = LayoutInflater.from(this).inflate(R.layout.activity_variables_block, null) as View
         blockContainer.addView(block)
         val varBlockBinding = ActivityVariablesBlockBinding.bind(block)
-       /* varBlockBinding.varVal.addTextChangedListener {
-            Log.d("Listener", "Заработало")
-            variables.insertData(varBlockBinding.varName.text.toString(),Arithmetic.countPolishString(varBlockBinding.varVal.text.toString(),variables))
-        }*/
-        varBlockBinding.varVal.addTextChangedListener(object : TextWatcher {
-
-            override fun afterTextChanged(s: Editable) {
-                variables.insertData(varBlockBinding.varName.text.toString(),Arithmetic.countPolishString(varBlockBinding.varVal.text.toString(),variables))
-            }
-
-            override fun beforeTextChanged(s: CharSequence, start: Int,
-                                           count: Int, after: Int) {
-            }
-
-            override fun onTextChanged(s: CharSequence, start: Int,
-                                       before: Int, count: Int) {
-            }
-        })
-
+        var variable:Vars = Vars(comp,varBlockBinding.variable,varBlockBinding.expression)
+        comp.addOperation(variable)
+    }
+    fun addArithmeticBlock()
+    {
+        val blockContainer = binding.blocksContainer
+        val block = LayoutInflater.from(this).inflate(R.layout.activity_arithmetic_block, null) as View
+        blockContainer.addView(block)
+        val varBlockBinding = ActivityArithmeticBlockBinding.bind(block)
+        var arithm:Arithmetic = Arithmetic(varBlockBinding.expression,varBlockBinding.variable, comp)
+        //blockContainer.remove(view) Вот так можно удалять блоки
+        comp.addOperation(arithm)
+    }
+    fun addOutputBlock()
+    {
+        val blockContainer = binding.blocksContainer
+        val block = LayoutInflater.from(this).inflate(R.layout.activity_output_block, null) as View
+        blockContainer.addView(block)
+        val varBlockBinding = ActivityOutputBlockBinding.bind(block)
+        var output:Print = Print(varBlockBinding.whatToOutput, comp)
+        comp.addOperation(output)
     }
 }

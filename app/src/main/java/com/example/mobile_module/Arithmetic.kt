@@ -1,10 +1,11 @@
 package com.example.mobile_module
 
+import android.widget.EditText
 import androidx.core.text.isDigitsOnly
 import java.util.*
 import kotlin.collections.ArrayDeque
 
-object Arithmetic {
+class Arithmetic(private val expressionField: EditText, private val valueToChange:EditText, private var comp:Compiler) : BlockInterface() {
     private val opsDictionary: Map<Char,Int> = mapOf('-' to 1, '+' to 1,'*' to 2,'/' to 2,'(' to -1,')' to -1)
     private fun generatePolishString(input:String):MutableList<String>
     {
@@ -52,9 +53,9 @@ object Arithmetic {
         }
         return output
     }
-    fun countPolishString(_string:String,_vars:Vars):String{
+    fun countPolishString(){
         val regex = "\\w+".toRegex()
-        val string = generatePolishString(_string)
+        val string = generatePolishString(expressionField.text.toString())
         var stack = ArrayDeque<String>()
         for (i in string)
         {
@@ -65,7 +66,7 @@ object Arithmetic {
             }
             if(i.matches(regex))
             {
-                stack.addLast(_vars.getValue(i).toString())
+                stack.addLast(comp.getValue(i).toString())
                 continue
             }
             val a = stack.removeLast().toInt()
@@ -86,6 +87,7 @@ object Arithmetic {
                 }
             }
         }
-        return stack.last()
+        comp.insertData(valueToChange.text.toString(),stack.last())
     }
+
 }
