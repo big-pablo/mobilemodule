@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                         addOutputBlock()
                     true}
                     else -> {
-                        Toast.makeText(this, "А ты куда вообще тыкнул, ебанутый?", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(this, "А ты куда вообще тыкнул?", Toast.LENGTH_SHORT).show()
                     true}
                 }
             }
