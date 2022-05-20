@@ -34,7 +34,7 @@ class Compiler(private val context:Context) {
                     i.countPolishString()
                 }
                 is Print ->{
-                    outputString = outputString + " " + i.output()
+                    outputString = outputString + "\n" + i.output()
                 }
             }
         }

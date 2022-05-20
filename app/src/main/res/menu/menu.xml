@@ -3,5 +3,5 @@
 <item android:title="Работа с переменными" android:id="@+id/addVars"></item>
     <item android:title="Арифметика" android:id="@+id/arithmetic"></item>
     <item android:title="Вывод" android:id="@+id/output"></item>
-    <item android:title="Условие" android:id="condition"></item>
+    <item android:title="Условие" android:id="@+id/condition"></item>
 </menu>
