@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">CodeBlocks</string>
+    <string name="mainButtonText">Start</string>
+    <string name="addBlockButtonText">Add block</string>
+    <string name="ArithmeticBlockName">Арифметика</string>
+    <string name="ArithmVarHintText">Variable</string>
+    <string name="ExpressionHint">Expression</string>
+    <string name="ArithmEqualitySignText">=</string>
+    <string name="IfBlockAddButtonText">+</string>
+    <string name="IfBlockStartText">Если:</string>
+    <string name="IfBlockEndText">Конец условного блока</string>
+    <string name="OutputBlockText">Вывод</string>
+    <string name="OutputBlockHint">What to output</string>
+    <string name="VarBlockText">Работа с переменной</string>
+    <string name="VarBlockNameHint">Name</string>
+    <string name="VarBlockValueHint">Value</string>
 </resources>

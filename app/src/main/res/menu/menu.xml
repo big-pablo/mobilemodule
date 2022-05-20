@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-<item android:title="Работа с переменными" android:id="@+id/addVars"></item>
-    <item android:title="Арифметика" android:id="@+id/arithmetic"></item>
-    <item android:title="Вывод" android:id="@+id/output"></item>
-    <item android:title="Условие" android:id="@+id/condition"></item>
+    <item
+        android:id="@+id/addVars"
+        android:title="Работа с переменными"></item>
+    <item
+        android:id="@+id/arithmetic"
+        android:title="Арифметика"></item>
+    <item
+        android:id="@+id/output"
+        android:title="Вывод"></item>
+    <item
+        android:id="@+id/condition"
+        android:title="Условие"></item>
 </menu>
