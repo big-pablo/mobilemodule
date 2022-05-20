@@ -13,12 +13,6 @@ class Compiler(private val context:Context) {
     fun addOperation(toAdd:BlockInterface)
     {
         compArray = compArray.plus(toAdd)
-        print("Должно добавиться, щас выведет")
-        Log.i("Comp", "Added")
-        for (i in compArray)
-        {
-            Log.i("Comp",i.toString())
-        }
     }
     fun getValue(key: String): Int
     {
@@ -47,6 +41,6 @@ class Compiler(private val context:Context) {
         val outputDialog = AlertDialog.Builder(context).setTitle("Ваш вывод")
             .setMessage(outputString)
         outputDialog.show()
-        
+        outputString = ""
     }
 }

@@ -10,13 +10,6 @@ class Print(private val whatToOutput:EditText, private val comp:Compiler):BlockI
         if (text.isDigitsOnly()){
             return text
         }
-        /*if (text.matches(stringRegex)){
-            var delimeter = ('"').toString()
-            return  text.removeSurrounding(delimeter)
-        }
-        else{
-            return(comp.getValue(text).toString())
-        } */
         try{
             return (comp.getValue(text).toString())
         }

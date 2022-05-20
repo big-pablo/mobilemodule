@@ -11,7 +11,7 @@ class Arithmetic(private val expressionField: EditText, private val valueToChang
     {
         var output: MutableList<String> = mutableListOf()
         var stack = ArrayDeque<Char>()
-        var i = 0;
+        var i = 0
         while (i < input.length) {
             var str:String = ""
             if(input[i].isLetterOrDigit())
@@ -89,5 +89,4 @@ class Arithmetic(private val expressionField: EditText, private val valueToChang
         }
         comp.insertData(valueToChange.text.toString(),stack.last())
     }
-
 }

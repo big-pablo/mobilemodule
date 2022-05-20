@@ -1,7 +1,3 @@
 <resources>
-    <string name="app_name">mobile-module</string>
-    <string-array name="blocks">
-        <item> </item>
-        <item>Объявить/Изменить переменную</item>
-    </string-array>
+    <string name="app_name">CodeBlocks</string>
 </resources>

@@ -11,10 +11,7 @@ import android.view.View.inflate
 import android.widget.*
 import android.util.Log
 import androidx.core.widget.addTextChangedListener
-import com.example.mobile_module.databinding.ActivityArithmeticBlockBinding
-import com.example.mobile_module.databinding.ActivityMainBinding
-import com.example.mobile_module.databinding.ActivityOutputBlockBinding
-import com.example.mobile_module.databinding.ActivityVariablesBlockBinding
+import com.example.mobile_module.databinding.*
 
 class MainActivity : AppCompatActivity() {
     var comp:Compiler = Compiler(this)
@@ -76,5 +73,17 @@ class MainActivity : AppCompatActivity() {
         val varBlockBinding = ActivityOutputBlockBinding.bind(block)
         var output:Print = Print(varBlockBinding.whatToOutput, comp)
         comp.addOperation(output)
+    }
+    fun addConditionBlock()
+    {
+        val blockContainer = binding.blocksContainer
+        val block = LayoutInflater.from(this).inflate(R.layout.activity_if_block, null) as View
+        blockContainer.addView(block)
+        val varBlockBinding = ActivityIfBlockBinding.bind(block)
+        varBlockBinding.button.setOnClickListener{
+
+        }
+        //var output:Print = Print(varBlockBinding.whatToOutput, comp)
+        //comp.addOperation(output)
     }
 }
